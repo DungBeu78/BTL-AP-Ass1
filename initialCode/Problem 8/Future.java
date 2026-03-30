@@ -4,23 +4,25 @@ public class Future extends Derivative {
 
     public Future(String symbol, String name, double currentPrice, double contractSize, int expiryDays) {
         super(symbol, name, currentPrice);
-        // TODO
-        throw new UnsupportedOperationException("TODO");
+        this.contractSize = contractSize;
+        this.expiryDays = expiryDays;
     }
 
     @Override
     public double riskScore() {
-        // TODO
-        throw new UnsupportedOperationException("TODO");
+        return 8.5;
+    }
+
+    @Override
+    public void accept(InstrumentVisitor visitor) {
+        visitor.visit(this);
     }
 
     public double getContractSize() {
-        // TODO
-        throw new UnsupportedOperationException("TODO");
+        return contractSize;
     }
 
     public int getExpiryDays() {
-        // TODO
-        throw new UnsupportedOperationException("TODO");
+        return expiryDays;
     }
 }

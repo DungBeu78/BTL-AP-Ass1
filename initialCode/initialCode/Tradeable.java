@@ -5,14 +5,8 @@ public interface Tradeable {
 
     boolean isAvailableForTrading();
 
-    /**
-     * 
-     * Example: "Tradeable: AAPL at $150.0 (Available)".
-     *
-     */
     default String getTradingInfo() {
-        return "Tradeable: " + getSymbol()
-                + " at $" + getCurrentPriceValue()
-                + " (" + (isAvailableForTrading() ? "Available" : "Unavailable") + ")";
+        // TODO
+        throw new UnsupportedOperationException("TODO");
     }
 }
