@@ -48,7 +48,7 @@ public abstract class Instrument {
     public String toString() {
         return getClass().getSimpleName()
                 + "[symbol=" + symbol
-                + ", price=" + currentPrice
-                + ", risk=" + riskScore() + "]";
+                + ", price=" + String.format("%.2f", currentPrice)
+                + ", risk=" + String.format("%.2f", riskScore()) + "]";
     }
 }

@@ -7,10 +7,10 @@ public class TaxReportVisitor implements InstrumentVisitor {
         double tax = stock.getCurrentPriceValue() * 0.15;
         totalTaxLiability += tax;
         report.append("Stock ")
-              .append(stock.getSymbol())
-              .append(": ")
-              .append(tax)
-              .append("\n");
+                .append(stock.getSymbol())
+                .append(": ")
+                .append(String.format("%.2f", tax))
+                .append("\n");
     }
 
     @Override
@@ -18,10 +18,10 @@ public class TaxReportVisitor implements InstrumentVisitor {
         double tax = bond.annualCouponPayment(1) * 0.30;
         totalTaxLiability += tax;
         report.append("Bond ")
-              .append(bond.getSymbol())
-              .append(": ")
-              .append(tax)
-              .append("\n");
+                .append(bond.getSymbol())
+                .append(": ")
+                .append(String.format("%.2f", tax))
+                .append("\n");
     }
 
     @Override
@@ -29,10 +29,10 @@ public class TaxReportVisitor implements InstrumentVisitor {
         double tax = option.getCurrentPriceValue() * 0.20;
         totalTaxLiability += tax;
         report.append("Option ")
-              .append(option.getSymbol())
-              .append(": ")
-              .append(tax)
-              .append("\n");
+                .append(option.getSymbol())
+                .append(": ")
+                .append(String.format("%.2f", tax))
+                .append("\n");
     }
 
     @Override
@@ -40,10 +40,10 @@ public class TaxReportVisitor implements InstrumentVisitor {
         double tax = future.getCurrentPriceValue() * 0.20;
         totalTaxLiability += tax;
         report.append("Future ")
-              .append(future.getSymbol())
-              .append(": ")
-              .append(tax)
-              .append("\n");
+                .append(future.getSymbol())
+                .append(": ")
+                .append(String.format("%.2f", tax))
+                .append("\n");
     }
 
     public double getTotalTaxLiability() {

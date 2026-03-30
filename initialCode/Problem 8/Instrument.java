@@ -60,6 +60,9 @@ public abstract class Instrument implements Tradeable, Priceable {
 
     @Override
     public double getPriceChangePercent(double previousPrice) {
+        if (previousPrice == 0) {
+            throw new IllegalArgumentException("Invalid previous price: division by zero");
+        }
         return ((currentPrice - previousPrice) / previousPrice) * 100.0;
     }
 
@@ -67,7 +70,7 @@ public abstract class Instrument implements Tradeable, Priceable {
     public String toString() {
         return getClass().getSimpleName()
                 + "[symbol=" + symbol
-                + ", price=" + currentPrice
-                + ", risk=" + riskScore() + "]";
+                + ", price=" + String.format("%.2f", currentPrice)
+                + ", risk=" + String.format("%.2f", riskScore()) + "]";
     }
 }

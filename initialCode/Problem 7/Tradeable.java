@@ -5,9 +5,13 @@ public interface Tradeable {
 
     boolean isAvailableForTrading();
 
+    // <symbol> @ <price with 2 decimal places> [AVAILABLE/UNAVAILABLE]
     default String getTradingInfo() {
-        return "Tradeable: " + getSymbol()
-                + " at $" + getCurrentPriceValue()
-                + " (" + (isAvailableForTrading() ? "Available" : "Unavailable") + ")";
+        return getSymbol()
+                + " @ "
+                + String.format("%.2f", getCurrentPriceValue())
+                + " ["
+                + (isAvailableForTrading() ? "AVAILABLE" : "UNAVAILABLE")
+                + "]";
     }
 }

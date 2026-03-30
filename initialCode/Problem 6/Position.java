@@ -39,6 +39,7 @@ public class Position {
     public String toString() {
         return "Position[instrument=" + instrument.getSymbol()
                 + ", quantity=" + quantity
-                + ", averageCostBasis=" + averageCostBasis + "]";
+                + ", averageCostBasis=" + String.format("%.2f", averageCostBasis)
+                + "]";
     }
 }
